@@ -8,7 +8,8 @@ const config = {
   dbHost:  process.env.DB_HOST,
   dbName:  process.env.DB_NAME,
   dbPort:  process.env.DB_PORT,
-  dbUri: process.env.DB_URI,
+  dbPostgresUri: process.env.POSTGRESQL_URI,
+  dbMySqlUri: process.env.MYSQL_URI,
 }
 
 module.exports = { config };
