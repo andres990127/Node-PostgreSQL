@@ -1,15 +1,13 @@
 const faker = require('faker');
 const boom = require('@hapi/boom');
 
-const pool = require('../libs/postgres.pool');
+const sequelize = require('../libs/sequelize');
 
 class ProductsService {
 
   constructor(){
     this.products = [];
     this.generate();
-    this.pool = pool;
-    this.pool.on('error', (err) => console.error(err));
   }
 
   generate() {
@@ -35,8 +33,8 @@ class ProductsService {
   }
 
   async find() {
-    const data = await this.pool.query('Select * from task');
-    return data.rows;
+    const [data] = await sequelize.query('Select * from task');
+    return data;
   }
 
   async findOne(id) {
