@@ -9,6 +9,6 @@ const sequelize = new Sequelize(config.dbMySqlUri, {
 
 setupModels(sequelize);
 
-sequelize.sync();
+// sequelize.sync(); No se usa debido a que se implementó migraciones
 
 module.exports = sequelize;
