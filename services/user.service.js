@@ -11,7 +11,9 @@ class UserService {
   }
 
   async find() {
-    return models.User.findAll();
+    return models.User.findAll({
+      include: ['customer']
+    });
   }
 
   async findOne(id) {
